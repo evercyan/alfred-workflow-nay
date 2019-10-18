@@ -6,6 +6,8 @@
 
 ### 使用帮助
 
+[点我直接下载安装文件](./Nay.alfredworkflow)
+
 ```
 在 workflow 列表中, 选中 Nay, 右键: Open in Finder 会进入应用代码目录
 
