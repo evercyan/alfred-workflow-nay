@@ -1,0 +1,3 @@
+AppKit
+qrcode
+Pillow
