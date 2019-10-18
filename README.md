@@ -184,9 +184,13 @@ http://baidu
 #### ocr: 图片文本识别
 
 截图后, 打开 ocr, 回车后, 会自动请求百度 ocr 文字识别应用进行解析, 并将返回的文本直接复制到剪切板
+
 目前使用的是我自己申请的 key
+
 如果失效, 去 [百度云控制台](https://console.bce.baidu.com/ai/#/ai/ocr/overview/index) 申请开通文字识别的应用
+
 替换掉配置里的 bce_api_key 和 bce_api_secret
+
 如下为示例效果:
 
 ![](./assets/ocr.png)
@@ -204,11 +208,12 @@ components for Angular
 
 #### dt: 斗图
 
-```
-输入文字以空格结束, 会自动搜索表情包, 选中回车后自动复制到粘贴板
-```
-![](./assets/dt.png)
 
+输入文字以空格结束, 会自动搜索表情包, 选中回车后自动复制到粘贴板
+
+如下为示例效果:
+
+![](./assets/dt.png)
 
 ---
 
