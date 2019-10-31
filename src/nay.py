@@ -7,6 +7,7 @@ import hashlib
 import time
 import urllib.parse
 from workflows import Workflows
+from i2c import I2C
 from qr import Qr
 
 
@@ -34,6 +35,7 @@ class Nay:
     ]
 
     def __init__(self):
+        self.i2c = I2C()
         self.wk = Workflows()
         pass
 
@@ -72,12 +74,12 @@ class Nay:
     def qr(self, query):
         qr = Qr()
         img_path = qr.generate(query)
-        self.wk.save_image_to_clipboard(img_path)
+        self.i2c.save_image_to_clipboard(img_path)
         return img_path
 
     # save image 2 clipboard
     def si2c(self, url):
-        self.wk.save_image_to_clipboard(url)
+        self.i2c.save_image_to_clipboard(url)
         return url
 
     # url_encode

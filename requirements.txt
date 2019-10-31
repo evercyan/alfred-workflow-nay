@@ -1,3 +1,4 @@
-AppKit
 qrcode
 Pillow
+pyobjc
+AppKit

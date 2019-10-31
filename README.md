@@ -14,7 +14,9 @@
 应用使用脚本语言有 python, php, shell等, 故需要对应环境方可使用
 
 python3 版本需安装相应模块
-终端进入应用目录下: pip install -r requirements.txt
+将斗图等图片复制到剪切板需用到 AppKit, 故进入应用目录, 安装步骤:
+brew install py3cairo
+pip install -r requirements.txt
 
 触发器中示例语法:
 /usr/local/bin/python ./src/nay.py "unie" "{query}"
