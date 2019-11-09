@@ -9,19 +9,17 @@
 [点我直接下载安装文件](./Nay.alfredworkflow)
 
 ```
-在 workflow 列表中, 选中 Nay, 右键: Open in Finder 会进入应用代码目录
-
 应用使用脚本语言有 python, php, shell等, 故需要对应环境方可使用
 
-python3 版本需安装相应模块
-将斗图等图片复制到剪切板需用到 AppKit, 故进入应用目录, 安装步骤:
-brew install py3cairo
-pip install -r requirements.txt
+python 使用 python3, 路径: /usr/local/bin/python3
+可直接使用 brew install python 安装
 
-触发器中示例语法:
-/usr/local/bin/python ./src/nay.py "unie" "{query}"
+其余依赖模块安装步骤:
+1. brew install py3cairo pygobject3
+3. 在 workflow 列表中, 选中 Nay, 右键: Open in Terminal 会进入应用代码目录
+pip3 install -r requirements.txt
 
-任一指令回车后都会将结果写入剪切板, 方便直接粘贴使用, 并弹出提示框
+因为环境差异, 如有报错, 搜索之~
 
 如果有功能无法正常使用:
 1. 进入 workflow 列表

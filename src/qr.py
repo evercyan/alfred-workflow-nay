@@ -1,5 +1,5 @@
-#! /usr/bin/env python
-# coding=utf-8
+#!/usr/local/bin/python3
+# -*- coding:utf-8 -*-
 import sys
 import qrcode
 import os

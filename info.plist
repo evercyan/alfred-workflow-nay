@@ -383,7 +383,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "md5" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "md5" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -432,7 +432,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "urld" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "urld" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -481,7 +481,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "urle" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "urle" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -579,7 +579,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "jsons" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "jsons" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -628,7 +628,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "jsone" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "jsone" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -677,7 +677,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "full" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "full" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -726,7 +726,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "unie" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "unie" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -775,7 +775,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "unid" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "unid" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -824,7 +824,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "half" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "half" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -873,7 +873,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "t2d" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "t2d" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -922,7 +922,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "d2t" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "d2t" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -971,7 +971,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python ./src/nay.py "time" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/nay.py "time" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

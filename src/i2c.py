@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 # -*- coding:utf-8 -*-
 # 处理复制图片到剪切板
 
