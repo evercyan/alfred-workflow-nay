@@ -1,36 +1,21 @@
 <?php
-require_once __DIR__ . '/dt.php';
-class Nay
+/**
+ * PHP
+ */
+
+class Base
 {
-    public function __construct()
-    {
-    }
-
     /**
-     * 入口逻辑
+     * 数组转换成 xml
+     *
+     * @param array $array
+     * @return string
      */
-    public function run($params)
-    {
-        $func = $params[1] ?? '';
-        $query = $params[2] ?? '';
-        if (empty($func)
-            || !method_exists($this, $func)) {
-            return false;
-        }
-        $result = $this->$func($query);
-        if (empty($result)) {
-            return false;
-        }
-
-        exit($this->toxml($result));
-        // exit(json_encode($result));
-    }
-
-    public function toxml($result)
+    public function toxml(array $array)
     {
         $xml = '<?xml version="1.0"?>';
         $xml .= '<items>';
-        foreach ($result as $item) {
+        foreach ($array as $item) {
             $xml .= '<item';
             if (!empty($item['arg'])) {
                 $xml .= sprintf(' arg="%s"', $item['arg']);
@@ -45,11 +30,195 @@ class Nay
             if (!empty($item['icon'])) {
                 $xml .= sprintf('<icon>%s</icon>', $item['icon']);
             }
+            if (!empty($item['variables'])) {
+                $xml .= sprintf(
+                    '<variables><title>%s</title><content>%s</content></variables>',
+                    $item['variables']['title'],
+                    $item['variables']['content']
+                );
+            }
             $xml .= '</item>';
         }
         $xml .= '</items>';
         return $xml;
     }
+
+    /**
+     * get 请求
+     *
+     * @param string $url
+     * @return string
+     */
+    public function get(string $url)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+        return curl_exec($ch);
+    }
+
+    /**
+     * post 请求
+     *
+     * @param string $url
+     * @param array $param
+     * @param array $header
+     * @return array
+     */
+    public function post(string $url, array $param, array $header = [])
+    {
+        $process = curl_init($url);
+        if (stripos($url, 'https://') !== false) {
+            curl_setopt($process, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($process, CURLOPT_SSL_VERIFYHOST, false);
+        }
+        $data = json_encode($param);
+        $headers = array_merge([
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($data),
+        ], $header);
+        curl_setopt($process, CURLOPT_POST, 1);
+        curl_setopt($process, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($process, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($process, CURLOPT_USERAGENT, 'Mozilla/4.0');
+        curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($process);
+        curl_close($process);
+        if (is_string($result)) {
+            $result = json_decode($result, true);
+        }
+        return $result;
+    }
+}
+
+class Api extends Base
+{
+    const API_ABBR = 'https://lab.magiconch.com/api/nbnhhsh/guess';
+    public function __construct()
+    {
+    }
+
+    /**
+     * 好好说话
+     *
+     * @param string $query
+     * @return array
+     */
+    public function abbr(string $query)
+    {
+        $resp = $this->post(self::API_ABBR, [
+            'text' => $query,
+        ]);
+        $list = $resp[0]['trans'] ?? [];
+        if (empty($list)) {
+            return [];
+        }
+
+        $result = [];
+        foreach ($list as $item) {
+            $result[] = [
+                'title' => $item,
+                'subtitle' => '',
+                'arg' => $item,
+                'variables' => [
+                    'title' => $item,
+                    'content' => $item,
+                ],
+            ];
+        }
+        return $result;
+    }
+}
+
+class Dt extends Base
+{
+    const API_URL = 'https://www.doutula.com/search?keyword=%s';
+    const REGEX_IMAGE = '/data-original\=\"([\s\S]*?)\"/';
+    const REGEX_NAME = '/<p style=\"([\s\S]*?)<\/p>/';
+
+    // 保留纪录阈值
+    const IMAGE_COUNT_MAX = 9;
+
+    // 临时图片存储路径
+    const STORE_PATH = '/tmp/.nay';
+
+    public function __construct()
+    {
+        if (!file_exists(self::STORE_PATH)) {
+            @mkdir(self::STORE_PATH);
+        }
+    }
+
+    /**
+     * 搜索斗图
+     *
+     * @param string $keyword
+     * @return array
+     */
+    public function search(string $keyword)
+    {
+        $content = $this->get(sprintf(self::API_URL, $keyword));
+        preg_match_all(self::REGEX_IMAGE, $content, $image_list);
+        preg_match_all(self::REGEX_NAME, $content, $name_list);
+        if (empty($image_list) || empty($name_list)) {
+            return [];
+        }
+        $datas = [];
+        $image_paths = [];
+        for ($i = 0; $i < count($image_list[1]); $i++) {
+            if (empty($name_list[1][$i])) {
+                continue;
+            }
+            if (count($datas) >= self::IMAGE_COUNT_MAX) {
+                break;
+            }
+            $title = substr($name_list[1][$i], strpos($name_list[1][$i], '>') + 1);
+            $image = $image_list[1][$i];
+            // 处理图片下载
+            $image_path = $this->getImagePath($image);
+            if (in_array($image_path, $image_paths)) {
+                continue;
+            }
+            $image_paths[] = $image_path;
+            $datas[] = [
+                'title' => $title,
+                'image' => $image,
+                'image_path' => $image_path,
+            ];
+        }
+        if (empty($datas)) {
+            return [];
+        }
+
+        $result = [];
+        foreach ($datas as $item) {
+            $result[] = [
+                'title' => $item['title'],
+                'subtitle' => '',
+                'arg' => $item['image'],
+                'icon' => $item['image_path'],
+                'variables' => [
+                    'title' => $item['title'],
+                    'content' => $item['image'],
+                ],
+            ];
+        }
+        return $result;
+    }
+
+    public function getImagePath($image)
+    {
+        $file_path = sprintf('%s/%s.png', self::STORE_PATH, md5($image));
+        if (!file_exists($file_path)) {
+            file_put_contents($file_path, $this->get($image));
+        }
+        return $file_path;
+    }
+}
+
+class Nay extends Base
+{
 
     const MENU = [
         [
@@ -116,7 +285,38 @@ class Nay
             'title' => '半角转全角',
             'subtitle' => 'full',
         ],
+        [
+            'title' => '好好说话',
+            'subtitle' => 'abbr',
+        ],
     ];
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * 入口逻辑
+     */
+    public function run($params)
+    {
+        $func = $params[1] ?? '';
+        $query = $params[2] ?? '';
+        if (empty($func) || !method_exists($this, $func)) {
+            return false;
+        }
+
+        $result = $this->$func($query);
+        if (empty($result)) {
+            return false;
+        }
+
+        exit(json_encode([
+            'items' => $result,
+        ]));
+        // exit($this->toxml($result));
+    }
+
     /**
      * 帮助菜单
      */
@@ -137,16 +337,30 @@ class Nay
 
     /**
      * 斗图
-     *
-     * 以空格结尾才会进行搜索, 否则触发请求太多
+     * 以空格结尾才会进行搜索, 避免触发请求太多
      */
     private function dt($query = '')
     {
         if (!preg_match('/ $/', $query)) {
             return false;
         }
-        $query = rtrim($query, '.');
+        $query = rtrim($query);
         return (new Dt())->search($query);
+    }
+
+    /**
+     * 好好说话
+     *
+     * input: sb
+     * output: ["那没事了", "xxxx"]
+     * 以空格结尾才会进行搜索, 避免触发请求太多
+     */
+    private function abbr($query = '')
+    {
+        if (!preg_match('/ $/', $query)) {
+            return false;
+        }
+        return (new Api())->abbr(trim($query));
     }
 }
 

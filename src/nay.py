@@ -92,7 +92,7 @@ class Nay:
 
     # json_expand
     def jsone(self, content):
-        return json.dumps(json.loads(content), indent=4, sort_keys=False, ensure_ascii=False)
+        return json.dumps(json.loads(content), indent=4, sort_keys=True, ensure_ascii=False)
 
     # json_shrink
     def jsons(self, content):
