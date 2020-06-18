@@ -1,6 +1,6 @@
 # alfred-workflow-nay
 
-> workflow 个人小工具, 持续迭代中...
+> workflow 个人小工具, 持续迭代中....
 
 ---
 
