@@ -243,7 +243,9 @@ class Dt extends Base
                 'title' => $item['title'],
                 'subtitle' => '',
                 'arg' => $item['image'],
-                'icon' => $item['image_path'],
+                'icon' => [
+                    'path' => $item['image_path'],
+                ],
                 'variables' => [
                     'title' => $item['title'],
                     'content' => $item['image'],
