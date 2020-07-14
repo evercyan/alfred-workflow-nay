@@ -208,12 +208,22 @@ components for Angular
 
 #### dt: 斗图
 
-
 输入文字以空格结束, 会自动搜索表情包, 选中回车后自动复制到粘贴板
 
 如下为示例效果:
 
 ![](./assets/dt.png)
+
+
+#### f: 百度翻译
+
+调用百度翻译, 去 [百度翻译开放平台](https://api.fanyi.baidu.com/) 申请通用翻译 API
+
+替换掉配置里的 bd_translate_appid 和 bd_translate_secret
+
+如下为示例效果:
+
+![](./assets/translate.png)
 
 ---
 

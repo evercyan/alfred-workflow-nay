@@ -1831,6 +1831,13 @@ puts xmlString</string>
 		<key>bd_translate_secret</key>
 		<string>zWw8o3_khzQgE2_XKsw0</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>bce_api_secret</string>
+		<string>bce_api_key</string>
+		<string>bd_translate_appid</string>
+		<string>bd_translate_secret</string>
+	</array>
 	<key>version</key>
 	<string>1.0.0</string>
 	<key>webaddress</key>
