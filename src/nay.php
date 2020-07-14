@@ -95,6 +95,8 @@ class Base
 class Api extends Base
 {
     const API_ABBR = 'https://lab.magiconch.com/api/nbnhhsh/guess';
+    const API_TRANSLATE = 'http://api.fanyi.baidu.com/api/trans/vip/translate';
+
     public function __construct()
     {
     }
@@ -124,6 +126,50 @@ class Api extends Base
                 'variables' => [
                     'title' => $item,
                     'content' => $item,
+                ],
+            ];
+        }
+        return $result;
+    }
+
+    /**
+     * 百度翻译
+     *
+     * @param string $query
+     * @return array
+     */
+    public function translate(string $query)
+    {
+        $flag = preg_match('/^[a-zA-Z]+$/isU', $query);
+        $param = [
+            'q' => $query,
+            'from' => $flag ? 'en' : 'zh',
+            'to' => $flag ? 'zh' : 'en',
+            'appid' => $_ENV['bd_translate_appid'] ?? '',
+            'salt' => intval(microtime(true)),
+        ];
+        $param['sign'] = md5(sprintf(
+            '%s%s%s%s',
+            $param['appid'],
+            $param['q'],
+            $param['salt'],
+            $_ENV['bd_translate_secret'] ?? ''
+        ));
+        $resp = $this->get(self::API_TRANSLATE . '?' . http_build_query($param));
+        $list = json_decode($resp, true)['trans_result'] ?? [];
+        if (empty($list)) {
+            return [];
+        }
+
+        $result = [];
+        foreach ($list as $item) {
+            $result[] = [
+                'title' => $item['dst'],
+                'subtitle' => '',
+                'arg' => $item['dst'],
+                'variables' => [
+                    'title' => $item['src'],
+                    'content' => $item['dst'],
                 ],
             ];
         }
@@ -289,6 +335,10 @@ class Nay extends Base
             'title' => '好好说话',
             'subtitle' => 'abbr',
         ],
+        [
+            'title' => '百度翻译',
+            'subtitle' => 'f',
+        ],
     ];
 
     public function __construct()
@@ -361,6 +411,17 @@ class Nay extends Base
             return false;
         }
         return (new Api())->abbr(trim($query));
+    }
+
+    /**
+     * 百度翻译
+     */
+    private function f($query = '')
+    {
+        if (!preg_match('/ $/', $query)) {
+            return false;
+        }
+        return (new Api())->translate(trim($query));
     }
 }
 

@@ -214,6 +214,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>92BE4DE9-19E5-47D2-BD23-2D949DE7AE13</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>93C0473E-3D34-4445-AA53-E8349AEC05EE</key>
 		<array>
 			<dict>
@@ -359,9 +372,9 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>ryan</string>
+	<string>cyan</string>
 	<key>description</key>
-	<string>Nay Tools</string>
+	<string>My tools</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -402,7 +415,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>md5</string>
+				<string></string>
 				<key>title</key>
 				<string>生成 md5</string>
 				<key>type</key>
@@ -451,7 +464,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>urld</string>
+				<string></string>
 				<key>title</key>
 				<string>URL 解码</string>
 				<key>type</key>
@@ -500,7 +513,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>urle</string>
+				<string></string>
 				<key>title</key>
 				<string>URL 编码</string>
 				<key>type</key>
@@ -549,7 +562,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>ip</string>
+				<string></string>
 				<key>title</key>
 				<string>显示 IP</string>
 				<key>type</key>
@@ -598,7 +611,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>nay</string>
+				<string></string>
 				<key>title</key>
 				<string>Nay Help</string>
 				<key>type</key>
@@ -647,7 +660,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>abbr</string>
+				<string></string>
 				<key>title</key>
 				<string>好好说话</string>
 				<key>type</key>
@@ -696,7 +709,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>jsons</string>
+				<string></string>
 				<key>title</key>
 				<string>Json 转换成单行</string>
 				<key>type</key>
@@ -745,7 +758,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>jsone</string>
+				<string></string>
 				<key>title</key>
 				<string>Json 格式化</string>
 				<key>type</key>
@@ -794,7 +807,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>full</string>
+				<string></string>
 				<key>title</key>
 				<string>半角转全角</string>
 				<key>type</key>
@@ -843,7 +856,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>unie</string>
+				<string></string>
 				<key>title</key>
 				<string>Unicode 编码</string>
 				<key>type</key>
@@ -855,6 +868,55 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>90AE3843-19A8-4882-85FD-E3EF26C86623</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>f</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>......</string>
+				<key>script</key>
+				<string>php ./src/nay.php "f" "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>百度翻译</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>92BE4DE9-19E5-47D2-BD23-2D949DE7AE13</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -892,7 +954,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>unid</string>
+				<string></string>
 				<key>title</key>
 				<string>Unicode 解码</string>
 				<key>type</key>
@@ -941,7 +1003,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>half</string>
+				<string></string>
 				<key>title</key>
 				<string>全角转半角</string>
 				<key>type</key>
@@ -990,7 +1052,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>t2d</string>
+				<string></string>
 				<key>title</key>
 				<string>时间戳转换为日期</string>
 				<key>type</key>
@@ -1039,7 +1101,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>d2t</string>
+				<string></string>
 				<key>title</key>
 				<string>日期转换为时间戳</string>
 				<key>type</key>
@@ -1088,7 +1150,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>time</string>
+				<string></string>
 				<key>title</key>
 				<string>当前时间戳</string>
 				<key>type</key>
@@ -1185,7 +1247,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>dt</string>
+				<string></string>
 				<key>title</key>
 				<string>斗图一下</string>
 				<key>type</key>
@@ -1252,7 +1314,7 @@
 				<key>keyword</key>
 				<string>si2c</string>
 				<key>subtext</key>
-				<string>si2c</string>
+				<string></string>
 				<key>text</key>
 				<string>复制图片到剪切板</string>
 				<key>withspace</key>
@@ -1296,7 +1358,7 @@
 				<key>keyword</key>
 				<string>qr</string>
 				<key>subtext</key>
-				<string>qr</string>
+				<string></string>
 				<key>text</key>
 				<string>生成二维码</string>
 				<key>withspace</key>
@@ -1442,7 +1504,7 @@ puts xmlString</string>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>kill</string>
+				<string></string>
 				<key>title</key>
 				<string>强杀进程</string>
 				<key>type</key>
@@ -1465,7 +1527,7 @@ puts xmlString</string>
 				<key>keyword</key>
 				<string>ocr</string>
 				<key>subtext</key>
-				<string>ocr</string>
+				<string></string>
 				<key>text</key>
 				<string>图片文字识别</string>
 				<key>withspace</key>
@@ -1650,6 +1712,15 @@ puts xmlString</string>
 			<key>ypos</key>
 			<integer>860</integer>
 		</dict>
+		<key>92BE4DE9-19E5-47D2-BD23-2D949DE7AE13</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>8</integer>
+			<key>xpos</key>
+			<integer>580</integer>
+			<key>ypos</key>
+			<integer>260</integer>
+		</dict>
 		<key>93C0473E-3D34-4445-AA53-E8349AEC05EE</key>
 		<dict>
 			<key>xpos</key>
@@ -1755,9 +1826,11 @@ puts xmlString</string>
 		<string>X0ZeAwxlc3iQHVM0kuufUBQI</string>
 		<key>bce_api_secret</key>
 		<string>GV8hpFmtPyTckNOmM8tEsC4hNk8Q3uKA</string>
+		<key>bd_translate_appid</key>
+		<string>20200714000519103</string>
+		<key>bd_translate_secret</key>
+		<string>zWw8o3_khzQgE2_XKsw0</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>1.0.0</string>
 	<key>webaddress</key>
