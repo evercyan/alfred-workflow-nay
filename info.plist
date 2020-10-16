@@ -605,7 +605,7 @@
 				<key>runningsubtext</key>
 				<string>......</string>
 				<key>script</key>
-				<string>php ./src/nay.php "menu" "{query}"</string>
+				<string>php ./src/php/menu.php "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1198,7 +1198,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "si2c" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/clipboard.py "image_to_clipboard" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1235,13 +1235,13 @@
 				<key>queuedelayimmediatelyinitially</key>
 				<true/>
 				<key>queuedelaymode</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>......</string>
 				<key>script</key>
-				<string>php ./src/nay.php "dt" "{query}"</string>
+				<string>php ./src/php/doutu.php "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1270,7 +1270,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "si2c" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/clipboard.py "image_to_clipboard" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1316,7 +1316,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>复制图片到剪切板</string>
+				<string>复制到剪切板</string>
 				<key>withspace</key>
 				<true/>
 			</dict>

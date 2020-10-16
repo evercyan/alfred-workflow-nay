@@ -5,7 +5,7 @@ def dump_clipboard_image
     file = Tempfile.new ['alfred_ocr', '.jpg']
     file.close
 
-    `./src/ocr/pngpaste #{file.path}`
+    `./src/bin/pngpaste #{file.path}`
     raise '请先复制图片到剪贴板' unless $?.success?
 
     content = Base64.encode64 file.open.read
