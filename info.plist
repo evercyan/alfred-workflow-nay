@@ -1377,22 +1377,9 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>0</integer>
+				<integer>102</integer>
 				<key>script</key>
-				<string>kill -9 {query}
-
-cat &lt;&lt;EOF
-{
-    "alfredworkflow": {
-        "arg": "woooke",
-        "config": {},
-        "variables": {
-            "title": "强杀进程",
-            "content": "{query}"
-        }
-    }
-}
-EOF</string>
+				<string>sh ./src/shell/kill.sh "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1419,7 +1406,7 @@ EOF</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string>./src/ocr/ocr.rb</string>
+				<string>./src/ruby/ocr.rb</string>
 				<key>type</key>
 				<integer>8</integer>
 			</dict>
@@ -1458,47 +1445,7 @@ EOF</string>
 				<key>runningsubtext</key>
 				<string>......</string>
 				<key>script</key>
-				<string># Type a query to test with here.
-# !!!!! Comment this line out when pasting into alfred preferences.
-#theQuery = ""
-# Grab the query that the user typed (this is provided by Alfred).
-# !!!!! Uncomment this line when pasting into Alfred Preferences.
-theQuery = "{query}"
-
-# Assemble an array of each matching process. It will contain the process's path and percent CPU usage.
-# The -A flag shows all processes. The -o pid, -o %cpu, and -o comm show only the process's PID, CPU usage and path, respectively.
-# Grep for processes whose name contains the query. The regex isolates the name by only searching characters after the last slash in the path.
-#  The -i flag ignores case.
-processes = `ps -A -o pid -o %cpu -o comm | grep -i [^/]*#{theQuery}[^/]*$`.split("\n")
-# Start the XML string that will be sent to Alfred. This just uses strings to avoid dependencies.
-xmlString = "&lt;?xml version=\"1.0\"?&gt;\n&lt;items&gt;\n"
-processes.each do | process |
-	# Extract the PID, CPU usage and path from the line (lines are in the form of `123 12.3 /path/to/process`).
-	processId, processCpu, processPath = process.match(/(\d+)\s+(\d+\.\d+)\s+(.*)/).captures
-	# Use the same expression as before to isolate the name of the process.
-	processName = processPath.match(/[^\/]*#{theQuery}[^\/]*$/i)
-	# Search for an application bundle in the path to the process.
-	iconValue = processPath.match(/.*\.app\//)
-	# The icon type sent to Alfred is 'fileicon' (taken from a file). This assumes that a .app was found.
-	iconType = "fileicon"
-	# If no .app was found, use OS X's generic 'executable binary' icon.
-	# An empty icon type tells Alfred to load the icon from the file itself, rather than loading the file type's icon.
-	if !iconValue
-		iconValue = "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ExecutableBinaryIcon.icns"
-		iconType = ""
-	end
-	#Assemble this item's XML string for Alfred. See http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/
-	thisXmlString = "\t&lt;item uid=\"#{processName}\" arg=\"#{processId}\"&gt;
-		&lt;title&gt;#{processName}&lt;/title&gt;
-		&lt;subtitle&gt;#{processCpu}% CPU @ #{processPath}&lt;/subtitle&gt;
-		&lt;icon type=\"#{iconType}\"&gt;#{iconValue}&lt;/icon&gt;
-	&lt;/item&gt;\n"
-	# Append this process's XML string to the global XML string.
-	xmlString += thisXmlString
-end
-# Finish off and echo the XML string to Alfred.
-xmlString += "&lt;/items&gt;"
-puts xmlString</string>
+				<string>ruby ./src/ruby/process.rb "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1508,7 +1455,7 @@ puts xmlString</string>
 				<key>title</key>
 				<string>强杀进程</string>
 				<key>type</key>
-				<integer>2</integer>
+				<integer>0</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
