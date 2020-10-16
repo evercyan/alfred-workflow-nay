@@ -12,7 +12,7 @@ from base import Base
 class Clipboard:
 
     # 写图片到剪贴板
-    def image_to_clipboard(self, url):
+    def image(self, url):
         pb = NSPasteboard.generalPasteboard()
         pb.clearContents()
         if url.startswith('http'):
@@ -30,7 +30,7 @@ class Clipboard:
         return
 
     # 写字符到剪贴板
-    def text_to_clipboard(self, text):
+    def text(self, text):
         pb = NSPasteboard.generalPasteboard()
         pb.clearContents()
         a = NSArray.arrayWithObject_(text)
@@ -46,7 +46,7 @@ class Clipboard:
         if hasattr(self, method) is False:
             return False
         getattr(self, method)(query)
-        Base().render_info("复制到剪贴板", query)
+        Base().render_info("已复制到剪贴板", query)
         return
 
 

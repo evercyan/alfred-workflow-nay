@@ -409,7 +409,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "md5" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "md5" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -458,7 +458,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "urld" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "urld" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -507,7 +507,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "urle" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "urle" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -556,7 +556,7 @@
 				<key>runningsubtext</key>
 				<string>......</string>
 				<key>script</key>
-				<string>sh ./src/nay.sh "ip" "{query}"</string>
+				<string>sh ./src/shell/ip.sh</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -703,7 +703,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "jsons" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "jsons" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -752,7 +752,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "jsone" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "jsone" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -801,7 +801,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "full" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "full" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -850,7 +850,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "unie" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "unie" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -948,7 +948,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "unid" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "unid" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -997,7 +997,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "half" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "half" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1046,7 +1046,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "t2d" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "t2d" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1095,7 +1095,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "d2t" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "d2t" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1144,7 +1144,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "time" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "time" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1198,7 +1198,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/python/clipboard.py "image_to_clipboard" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/clipboard.py "image" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1270,7 +1270,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/python/clipboard.py "image_to_clipboard" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/clipboard.py "image" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1312,11 +1312,11 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>si2c</string>
+				<string>img</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>复制到剪切板</string>
+				<string>复制图片到剪切板</string>
 				<key>withspace</key>
 				<true/>
 			</dict>
@@ -1335,7 +1335,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/nay.py "qr" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/qr.py "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
