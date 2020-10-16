@@ -1419,7 +1419,7 @@ EOF</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string>./src/ocr.rb</string>
+				<string>./src/ocr/ocr.rb</string>
 				<key>type</key>
 				<integer>8</integer>
 			</dict>
@@ -1567,7 +1567,7 @@ puts xmlString</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>hello, nay &lt;-&gt; yan</string>
+	<string>hello, yan</string>
 	<key>uidata</key>
 	<dict>
 		<key>0EEE4192-910C-484E-9DFC-76BCDA34B2E1</key>
@@ -1833,9 +1833,9 @@ puts xmlString</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>bd_translate_appid</string>
 		<string>bce_api_secret</string>
 		<string>bce_api_key</string>
-		<string>bd_translate_appid</string>
 		<string>bd_translate_secret</string>
 	</array>
 	<key>version</key>

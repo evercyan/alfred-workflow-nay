@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-# 显示 IP
 ip() {
     local_ip=$(ifconfig | grep -A 1 "en" | grep broadcast | cut -d " " -f 2 | tr "\\n" " ")
     external_ip=$(curl --silent http://icanhazip.com)
@@ -29,10 +27,8 @@ cat<<EOF
 EOF
 }
 
-cmd=$1
-query=$2
-if [ "$(type -t $cmd)" == function ];
+if [ "$(type -t $1)" == function ];
 then
-    $cmd $query;
+    $1
     exit;
 fi
