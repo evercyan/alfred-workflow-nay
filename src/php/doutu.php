@@ -96,9 +96,7 @@ class Doutu extends Base
             return;
         }
 
-        $result = $this->searchImage($query);
-
-        return $this->render($result);
+        return $this->render($this->searchImage($query));
     }
 }
 
