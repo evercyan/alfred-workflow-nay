@@ -1,7 +1,7 @@
 <?php
 class Base
 {
-    public function render($result)
+    public function renderList($result = '')
     {
         if (empty($result)) {
             return;
@@ -11,44 +11,35 @@ class Base
         ]));
     }
 
-    public function toXml(array $array)
+    public function renderInfo(string $title = '', string $content = '')
     {
-        $xml = '<?xml version="1.0"?>';
-        $xml .= '<items>';
-        foreach ($array as $item) {
-            $xml .= '<item';
-            if (!empty($item['arg'])) {
-                $xml .= sprintf(' arg="%s"', $item['arg']);
-            }
-            $xml .= '>';
-            if (!empty($item['title'])) {
-                $xml .= sprintf('<title>%s</title>', $item['title']);
-            }
-            if (!empty($item['subtitle'])) {
-                $xml .= sprintf('<subtitle>%s</subtitle>', $item['subtitle']);
-            }
-            if (!empty($item['icon'])) {
-                $xml .= sprintf('<icon>%s</icon>', $item['icon']);
-            }
-            if (!empty($item['variables'])) {
-                $xml .= sprintf(
-                    '<variables><title>%s</title><content>%s</content></variables>',
-                    $item['variables']['title'],
-                    $item['variables']['content']
-                );
-            }
-            $xml .= '</item>';
-        }
-        $xml .= '</items>';
-        return $xml;
+        exit(json_encode([
+            'alfredworkflow' => [
+                'arg' => $title,
+                'config' => (object) [],
+                'variables' => [
+                    'title' => $title,
+                    'content' => $content,
+                ],
+            ],
+        ]));
     }
 
-    /**
-     * get 请求
-     *
-     * @param string $url
-     * @return string
-     */
+    public function renderError(string $title = '', string $content = '')
+    {
+        $this->renderList([
+            [
+                'title' => $title,
+                'subtitle' => $content,
+                'arg' => $content,
+                'variables' => [
+                    'title' => $title,
+                    'content' => $content,
+                ],
+            ],
+        ]);
+    }
+
     public function get(string $url)
     {
         $ch = curl_init($url);
@@ -56,14 +47,6 @@ class Base
         return curl_exec($ch);
     }
 
-    /**
-     * post 请求
-     *
-     * @param string $url
-     * @param array $param
-     * @param array $header
-     * @return array
-     */
     public function post(string $url, array $param, array $header = [])
     {
         $process = curl_init($url);

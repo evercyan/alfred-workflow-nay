@@ -107,12 +107,12 @@ begin
     end
     copy result
     alfred_output({
-        'title' => 'OCR 图片文字识别',
+        'title' => '文字识别',
         'content' => result
     })
 rescue
     alfred_output({
-        'title' => 'OCR 图片文字识别',
+        'title' => '文字识别',
         'content' => "#{$!.message}"
     })
     STDERR.puts $!

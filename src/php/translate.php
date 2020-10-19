@@ -7,10 +7,16 @@ require_once __DIR__ . '/base.php';
 
 class Translate extends Base
 {
-    const API_TRANSLATE = 'http://api.fanyi.baidu.com/api/trans/vip/translate';
+    const TITLE = '百度翻译';
+    const API = 'http://api.fanyi.baidu.com/api/trans/vip/translate';
 
-    public function baiduTranslate(string $query)
+    public function api(string $query)
     {
+        if (empty($_ENV['bd_translate_appid'])
+            || empty($_ENV['bd_translate_secret'])) {
+            return $this->renderError('请配置 bd_translate_appid 和 bd_translate_secret');
+        }
+
         $from = 'zh';
         $to = 'en';
         if (preg_match('/^[a-zA-Z]+$/isU', $query)) {
@@ -31,10 +37,10 @@ class Translate extends Base
             $param['salt'],
             $_ENV['bd_translate_secret'] ?? ''
         ));
-        $resp = $this->get(self::API_TRANSLATE . '?' . http_build_query($param));
+        $resp = $this->get(self::API . '?' . http_build_query($param));
         $list = json_decode($resp, true)['trans_result'] ?? [];
         if (empty($list)) {
-            return [];
+            return $this->renderError('无数据');
         }
 
         $result = [];
@@ -44,12 +50,13 @@ class Translate extends Base
                 'subtitle' => '',
                 'arg' => $item['dst'],
                 'variables' => [
-                    'title' => $item['src'],
+                    'title' => sprintf('%s-%s', self::TITLE, $item['src']),
                     'content' => $item['dst'],
                 ],
             ];
         }
-        return $result;
+
+        return $this->renderList($result);
     }
 
     public function run(array $argv)
@@ -58,8 +65,7 @@ class Translate extends Base
         if (empty($query)) {
             return;
         }
-
-        return $this->render($this->baiduTranslate($query));
+        $this->api($query);
     }
 }
 

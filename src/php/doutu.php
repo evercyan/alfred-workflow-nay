@@ -1,18 +1,21 @@
 <?php
 /**
- * 斗图
+ * 搜索斗图
  */
 
 require_once __DIR__ . '/base.php';
 
 class Doutu extends Base
 {
-    const API_URL = 'https://www.doutula.com/search?keyword=%s';
+    const TITLE = '斗图';
+    const API = 'https://www.doutula.com/search?keyword=%s';
+
     const REGEX_IMAGE = '/data-original\=\"([\s\S]*?)\"/';
     const REGEX_NAME = '/<p style=\"([\s\S]*?)<\/p>/';
-    // 保留纪录阈值
-    const IMAGE_COUNT_MAX = 9;
-    // 临时图片存储路径
+
+    // 列表图片数量
+    const IMAGE_NUMBER = 9;
+    // 临时图片存储
     const STORE_PATH = '/tmp/.nay';
 
     public function __construct()
@@ -22,27 +25,25 @@ class Doutu extends Base
         }
     }
 
-    /**
-     * 搜索斗图
-     *
-     * @param string $keyword
-     * @return array
-     */
-    public function searchImage(string $keyword)
+    public function api(string $keyword)
     {
-        $content = $this->get(sprintf(self::API_URL, $keyword));
+        $content = $this->get(sprintf(self::API, $keyword));
         preg_match_all(self::REGEX_IMAGE, $content, $image_list);
         preg_match_all(self::REGEX_NAME, $content, $name_list);
-        if (empty($image_list) || empty($name_list)) {
-            return [];
+        if (empty($image_list)
+            || !empty($name_list)) {
+            return $this->renderError('无数据');
         }
+
+        $image_number = $_ENV['app_doutu_image_number'] ?? self::IMAGE_NUMBER;
+
         $datas = [];
         $image_paths = [];
         for ($i = 0; $i < count($image_list[1]); $i++) {
             if (empty($name_list[1][$i])) {
                 continue;
             }
-            if (count($datas) >= self::IMAGE_COUNT_MAX) {
+            if (count($datas) >= $image_number) {
                 break;
             }
             $title = substr($name_list[1][$i], strpos($name_list[1][$i], '>') + 1);
@@ -58,8 +59,9 @@ class Doutu extends Base
                 'image_path' => $image_path,
             ];
         }
+
         if (empty($datas)) {
-            return [];
+            return $this->renderError('无数据');
         }
 
         $result = [];
@@ -72,12 +74,13 @@ class Doutu extends Base
                     'path' => $item['image_path'],
                 ],
                 'variables' => [
-                    'title' => $item['title'],
+                    'title' => sprintf('%s-%s', self::TITLE, $item['title']),
                     'content' => $item['image'],
                 ],
             ];
         }
-        return $result;
+
+        return $this->renderList($result);
     }
 
     public function saveImage($image)
@@ -95,8 +98,7 @@ class Doutu extends Base
         if (empty($query)) {
             return;
         }
-
-        return $this->render($this->searchImage($query));
+        $this->api($query);
     }
 }
 

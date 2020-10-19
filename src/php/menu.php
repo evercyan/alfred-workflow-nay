@@ -1,6 +1,6 @@
 <?php
 /**
- * 输出 nay 菜单
+ * nay 菜单
  */
 
 require_once __DIR__ . '/base.php';
@@ -65,7 +65,7 @@ class Menu extends Base
             'title' => 'ocr',
         ],
         [
-            'subtitle' => '斗图一下',
+            'subtitle' => '斗图',
             'title' => 'dt',
         ],
         [
@@ -73,7 +73,7 @@ class Menu extends Base
             'title' => 'qr',
         ],
         [
-            'subtitle' => '好好说话',
+            'subtitle' => '字母简写',
             'title' => 'abbr',
         ],
         [
@@ -84,7 +84,7 @@ class Menu extends Base
 
     public function run(array $argv)
     {
-        $query = $argv[1] ?? '';
+        $query = trim($argv[1] ?? '');
 
         $result = [];
         foreach (self::MENU_LIST as $item) {
@@ -97,7 +97,7 @@ class Menu extends Base
             $result[] = $item;
         }
 
-        return $this->render($result);
+        return $this->renderList($result);
     }
 }
 

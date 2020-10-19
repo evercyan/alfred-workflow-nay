@@ -1,22 +1,23 @@
 <?php
 /**
- * 猜测简拼
+ * 字母简写
  */
 
 require_once __DIR__ . '/base.php';
 
 class Abbr extends Base
 {
-    const API_ABBR = 'https://lab.magiconch.com/api/nbnhhsh/guess';
+    const TITLE = '字母简写';
+    const API = 'https://lab.magiconch.com/api/nbnhhsh/guess';
 
-    public function guess(string $query)
+    public function api(string $query)
     {
-        $resp = $this->post(self::API_ABBR, [
+        $resp = $this->post(self::API, [
             'text' => $query,
         ]);
         $list = $resp[0]['trans'] ?? [];
         if (empty($list)) {
-            return [];
+            return $this->renderError('无数据');
         }
 
         $result = [];
@@ -26,12 +27,13 @@ class Abbr extends Base
                 'subtitle' => '',
                 'arg' => $item,
                 'variables' => [
-                    'title' => $item,
+                    'title' => sprintf('%s-%s', self::TITLE, $query),
                     'content' => $item,
                 ],
             ];
         }
-        return $result;
+
+        return $this->renderList($result);
     }
 
     public function run(array $argv)
@@ -40,8 +42,7 @@ class Abbr extends Base
         if (empty($query)) {
             return;
         }
-
-        return $this->render($this->guess($query));
+        $this->api($query);
     }
 }
 
