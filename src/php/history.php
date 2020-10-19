@@ -37,11 +37,10 @@ class History extends Base
             return $this->renderError('无数据');
         }
 
-        $date = sprintf('%s-%s-%s', date('Y'), $month, $day);
-        $title = sprintf('%s %s', self::TITLE, $date);
-
         $result = [];
         foreach ($list as $item) {
+            $date = sprintf('%s-%s-%s', $item['year'], $item['month'], $item['day']);
+            $title = sprintf('%s %s', self::TITLE, $date);
             $result[] = [
                 'title' => $item['title'],
                 'subtitle' => $date,
