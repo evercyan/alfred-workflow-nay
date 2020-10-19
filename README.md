@@ -185,4 +185,4 @@ alfred 输入框输入 `qr` `文本`, 应用会自动生成二维码图片, 并�
 
 ## 链接
 
-- ocr 功能是克隆 [alfred-clipboard-ocr](https://github.com/oott123/alfred-clipboard-ocr)
+- [alfred-clipboard-ocr](https://github.com/oott123/alfred-clipboard-ocr)
