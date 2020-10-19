@@ -10,17 +10,45 @@ alfred workflow 小工具, 持续迭代中
 
 ---
 
+## 必读 QA
+
+```
+应用使用脚本语言有 python, php, shell 和 ruby 等, 故均需要对应环境
+其中 python 使用 /usr/local/bin/python3, 可直接使用 brew install python 安装
+```
+
+```
+若需要使用进队工具, 需要安装相关依赖:
+1. brew install py3cairo pygobject3
+2. 在 alfred workflow 列表中, 选中 nay 右键: Open in Terminal 进入应用目录
+3. pip3 install -r requirements.txt
+```
+
+```
+免责一下
+应用本人仅测试 Mac 10.14+
+```
+
+---
+
 ## 功能列表
 
-#### nay 显示命令菜单
+### nay 显示命令菜单
+![nay-menu](https://raw.githubusercontent.com/evercyan/cantor/master/resource/f9/f9a090ee01542e0ce27e8bfa472a1551.png)
 
-### urle URL 编码
+---
+
+### 基础工具
+
+一些常用的文本处理工具, 安装即可使用
+
+#### urle URL 编码
 `http://baidu` => `http%3A//baidu`
 
-### urld URL 解码
+#### urld URL 解码
 `http%3A//baidu` => `http://baidu`
 
-### jsons JSON 收缩
+#### jsons JSON 收缩
 ```json
 {
     "hello": "world"
@@ -33,7 +61,7 @@ alfred workflow 小工具, 持续迭代中
 {"hello": "world"}
 ```
 
-### jsone JSON 扩张
+#### jsone JSON 扩张
 ```json
 {"hello": "world"}
 ```
@@ -46,150 +74,100 @@ alfred workflow 小工具, 持续迭代中
 }
 ```
 
-### unie Unicode 编码
+#### unie Unicode 编码
 `你好` => `\u4f60\u597d`
 
-### unid Unicode 解码
+#### unid Unicode 解码
 `\u4f60\u597d` => `你好`
 
-### half 全角转半角
+#### half 全角转半角
 `。，【】？` => `.,[]?`
 
-### full 半角转全角
+#### full 半角转全角
 `.,[]?` => `。，【】？`
 
-### t2d 时间戳转日期
+#### t2d 时间戳转日期
 `1603097785` => `2020-10-19 16:56:25`
 
-### d2t 日期转时间戳
+#### d2t 日期转时间戳
 `2020-10-19 16:56:25` => `1603097785`
 
-### now 当前时间戳
+#### now 当前时间戳
 `1603097785`
 
-### md5 生成 md5
+#### md5 生成 md5
 `111111` => `96e79218965eb72c92a549dd5a330112`
 
-### ip 显示 IP
-### kill 强杀进程
-### ocr 文字识别
-### qr 生成二维码
-### dt 斗图
-### abbr 字母简写
-### f 百度翻译
-### history 历史上的今天
+---
 
+### 进阶工具
 
-## 使用帮助
+需要安装 python 的一些依赖库,
 
-[点我直接下载安装文件](./Nay.alfredworkflow)
+```sh
+brew install py3cairo pygobject3
+
+pip3 install qrcode
+pip3 install Pillow
+pip3 install PyObjC
+```
+
+#### ocr 文字识别
+ 
+- 截图或者复制图片到`剪贴板`
+- alfred 输入框输入 `ocr` 并回车(会请求百度 ocr 文字识别进行解析, 并将返回的文本直接写入`剪贴板`)
+- ctrl + v 直接粘贴识别后的文字
+
+示例:
+![nay-ocr](https://raw.githubusercontent.com/evercyan/cantor/master/resource/cc/cc64524642e5124c53faed8b8de5e6e6.png)
+
+=> 
 
 ```
-应用使用脚本语言有 python, php, shell等, 故需要对应环境方可使用
-
-python 使用 python3, 路径: /usr/local/bin/python3
-可直接使用 brew install python 安装
-
-其余依赖模块安装步骤:
-1. brew install py3cairo pygobject3
-3. 在 workflow 列表中, 选中 Nay, 右键: Open in Terminal 会进入应用代码目录
-pip3 install -r requirements.txt
-
-因为环境差异, 如有报错, 搜索之~
-
-如果有功能无法正常使用:
-1. 进入 workflow 列表
-2. 选中 Nay 应用
-3. 点击右上角 bug 图标, 进入调试模式
-4. 使用功能, 观察输出框报错..
-
-Attension:
-当前应用本人仅 Mac 环境亲测
-
-PPSS:
-快照中:
-绿色为 python 脚本实现
-红色为 shell 脚本实现
-蓝色为 php 脚本实现
-白色为其他
-
+H evercyan/ alfred-workflow-nay a
+<>code① Issues 8 Pull requests⊙ Actions國 Projects
 ```
+
+#### img 复制图片到剪贴板
+alfred 输入框输入 `img` `远程图片地址` 或 `本地图片地址`, 应用会自动读取图片内容并写入 `剪贴板`
+
+#### qr 生成二维码
+alfred 输入框输入 `qr` `文本`, 应用会自动生成二维码图片, 并将图片内容写入 `剪贴板`
 
 ---
 
-#### si2c: 图片复制到剪切板
+### 系统相关
 
-```
-本身是个内部功能, 方便斗图下载的表情包能复制到剪切板
-也适用于直接复制远程图片地址到剪切板
-```
+#### ip 显示 IP
+![nay-ip](https://raw.githubusercontent.com/evercyan/cantor/master/resource/78/7852df1b4063f7f7e11d1c6db899850f.png)
 
-#### qr: 生成二维码
-```
-输入待加密文本, 生成的二维码图片直接到剪切板
-```
-#### md5: 生成 md5
-![](./assets/md5.png)
-
-
-#### kill: 强杀进程
-![](./assets/kill.png)
-
-#### ocr: 图片文本识别
-
-截图后, 打开 ocr, 回车后, 会自动请求百度 ocr 文字识别应用进行解析, 并将返回的文本直接复制到剪切板
-
-目前使用的是我自己申请的 key
-
-如果失效, 去 [百度云控制台](https://console.bce.baidu.com/ai/#/ai/ocr/overview/index) 申请开通文字识别的应用
-
-替换掉配置里的 bce_api_key 和 bce_api_secret
-
-如下为示例效果:
-
-![](./assets/ocr.png)
-```
-o Securing software together
-Introducing new ways to identify and
-prevent security vulnerabilities across your
-code base
-Explore repositories
-angular/components
-Component infrastructure and material design
-components for Angular
-● Type Script★18.9k
-```
-
-#### dt: 斗图
-
-输入文字以空格结束, 会自动搜索表情包, 选中回车后自动复制到粘贴板
-
-如下为示例效果:
-
-![](./assets/dt.png)
-
-
-#### f: 百度翻译
-
-调用百度翻译, 去 [百度翻译开放平台](https://api.fanyi.baidu.com/) 申请通用翻译 API
-
-替换掉配置里的 bd_translate_appid 和 bd_translate_secret
-
-如下为示例效果:
-
-![](./assets/translate.png)
+#### kill 强杀进程
+![nay-kill](https://raw.githubusercontent.com/evercyan/cantor/master/resource/59/595e6d9de74a71b9b8b62c7695df4a34.png)
 
 ---
 
-### 快照镇楼
+### Api 工具
 
-![](./assets/workflow.png)
+调用外部 api 实现的一些小功能
+
+#### dt 斗图
+![nay-dt](https://raw.githubusercontent.com/evercyan/cantor/master/resource/02/02b69666c1eda159a61085bb9d198d6f.png)
+
+#### abbr 字母简写
+![nay-abbr](https://raw.githubusercontent.com/evercyan/cantor/master/resource/2b/2ba5d9c79adb71ff2b46f8b30f861c4f.png)
+
+#### f 百度翻译
+![nay-f](https://raw.githubusercontent.com/evercyan/cantor/master/resource/b7/b762c8f01cc29ec53e9bcd7f2b4bc9d5.png)
+
+使用需知, 自行去 [百度翻译开放平台](https://api.fanyi.baidu.com/) 申请通用翻译 API, 替换掉应用配置中的 `bd_translate_appid` 和 `bd_translate_secret`
+
+#### history 历史上的今天
+![nay-history](https://raw.githubusercontent.com/evercyan/cantor/master/resource/0b/0be2ef2c03be6c93ead70e61b40a2dc8.png)
+
+使用需知, 自行去 [阿凡达数据](https://www.avatardata.cn/Docs/Api/4b396fc5-22f5-4c21-86d1-b5f5777e6744) 申请应用 key, 替换掉应用配置中的 `api_history_key`
 
 ---
 
-### 链接
+## 链接
 
-- ocr 功能是克隆 [alfred-clipboard-ocr](https://github.com/oott123/alfred-clipboard-ocr), 只是为了交互方便统一, 才移入当前应用中
-- dt 斗图功能参考了 [斗图神器](https://github.com/KilluaChen/Dou-figure-alfred-workflow), 重写了图片处理相关逻辑和交互
-
----
+- ocr 功能是克隆 [alfred-clipboard-ocr](https://github.com/oott123/alfred-clipboard-ocr)

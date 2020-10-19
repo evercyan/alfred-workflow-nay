@@ -31,7 +31,7 @@ class Doutu extends Base
         preg_match_all(self::REGEX_IMAGE, $content, $image_list);
         preg_match_all(self::REGEX_NAME, $content, $name_list);
         if (empty($image_list)
-            || !empty($name_list)) {
+            || empty($name_list)) {
             return $this->renderError('无数据');
         }
 
