@@ -12,8 +12,8 @@ from base import Base
 class Tool:
 
     TITLE = {
-        'jsons': 'Json 转换成单行',
-        'jsone': 'Json 格式化',
+        'jsons': 'JSON 收缩',
+        'jsone': 'JSON 扩张',
         'unie': 'Unicode 编码',
         'unid': 'Unicode 解码',
         'urle': 'URL 编码',
@@ -21,8 +21,8 @@ class Tool:
         'half': '全角转半角',
         'full': '半角转全角',
         'time': '当前时间戳',
-        't2d': '时间戳转换为日期',
-        'd2t': '日期转换为时间戳',
+        't2d': '时间戳转日期',
+        'd2t': '日期转时间戳',
         'md5': '生成 md5',
     }
 

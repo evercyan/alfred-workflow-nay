@@ -1,6 +1,6 @@
 <?php
 /**
- * 输出 Nay 菜单
+ * 输出 nay 菜单
  */
 
 require_once __DIR__ . '/base.php';
@@ -8,22 +8,6 @@ require_once __DIR__ . '/base.php';
 class Menu extends Base
 {
     const MENU_LIST = [
-        [
-            'subtitle' => '显示 IP',
-            'title' => 'ip',
-        ],
-        [
-            'subtitle' => '识别截屏文字',
-            'title' => 'ocr',
-        ],
-        [
-            'subtitle' => '斗图一下',
-            'title' => 'dt',
-        ],
-        [
-            'subtitle' => '生成二维码',
-            'title' => 'qr',
-        ],
         [
             'subtitle' => 'URL 编码',
             'title' => 'urle',
@@ -33,28 +17,12 @@ class Menu extends Base
             'title' => 'urld',
         ],
         [
-            'subtitle' => 'Json 格式化',
-            'title' => 'jsone',
-        ],
-        [
-            'subtitle' => 'Json 转换成单行',
+            'subtitle' => 'JSON 收缩',
             'title' => 'jsons',
         ],
         [
-            'subtitle' => '生成 md5',
-            'title' => 'md5',
-        ],
-        [
-            'subtitle' => '日期转换为时间戳',
-            'title' => 'd2t',
-        ],
-        [
-            'subtitle' => '时间戳转换为日期',
-            'title' => 't2d',
-        ],
-        [
-            'subtitle' => '当前时间戳',
-            'title' => 'time',
+            'subtitle' => 'JSON 扩张',
+            'title' => 'jsone',
         ],
         [
             'subtitle' => 'Unicode 编码',
@@ -71,6 +39,38 @@ class Menu extends Base
         [
             'subtitle' => '半角转全角',
             'title' => 'full',
+        ],
+        [
+            'subtitle' => '时间戳转日期',
+            'title' => 't2d',
+        ],
+        [
+            'subtitle' => '日期转时间戳',
+            'title' => 'd2t',
+        ],
+        [
+            'subtitle' => '当前时间戳',
+            'title' => 'time',
+        ],
+        [
+            'subtitle' => '生成 md5',
+            'title' => 'md5',
+        ],
+        [
+            'subtitle' => '显示 IP',
+            'title' => 'ip',
+        ],
+        [
+            'subtitle' => '文字识别',
+            'title' => 'ocr',
+        ],
+        [
+            'subtitle' => '斗图一下',
+            'title' => 'dt',
+        ],
+        [
+            'subtitle' => '生成二维码',
+            'title' => 'qr',
         ],
         [
             'subtitle' => '好好说话',
@@ -93,7 +93,7 @@ class Menu extends Base
                 && stripos($item['subtitle'], $query) === false) {
                 continue;
             }
-            $item['arg'] = $item['subtitle'];
+            $item['arg'] = $item['title'];
             $result[] = $item;
         }
 

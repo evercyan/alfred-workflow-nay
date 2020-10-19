@@ -79,7 +79,7 @@ end
 def alfred_output(variables)
     obj = {
         'alfredworkflow' => {
-            'arg' => 'something',
+            'arg' => 'ocr',
             'config' => {},
             'variables' => variables
         }
