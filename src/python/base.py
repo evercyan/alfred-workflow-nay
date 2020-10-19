@@ -16,7 +16,7 @@ class Base:
     def render_info(self, title, content):
         resp = {
             'alfredworkflow': {
-                'arg': 'woooke',
+                'arg': 'nay',
                 'config': {},
                 'variables': {
                     'title': title,
