@@ -50,7 +50,7 @@ class Menu extends Base
         ],
         [
             'subtitle' => '当前时间戳',
-            'title' => 'time',
+            'title' => 'now',
         ],
         [
             'subtitle' => '生成 md5',
@@ -61,16 +61,20 @@ class Menu extends Base
             'title' => 'ip',
         ],
         [
+            'subtitle' => '强杀进程',
+            'title' => 'kill',
+        ],
+        [
             'subtitle' => '文字识别',
             'title' => 'ocr',
         ],
         [
-            'subtitle' => '斗图',
-            'title' => 'dt',
-        ],
-        [
             'subtitle' => '生成二维码',
             'title' => 'qr',
+        ],
+        [
+            'subtitle' => '斗图',
+            'title' => 'dt',
         ],
         [
             'subtitle' => '字母简写',
@@ -79,6 +83,10 @@ class Menu extends Base
         [
             'subtitle' => '百度翻译',
             'title' => 'f',
+        ],
+        [
+            'subtitle' => '历史上的今天',
+            'title' => 'history',
         ],
     ];
 

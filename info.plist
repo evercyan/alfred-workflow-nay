@@ -110,19 +110,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>604E4FDA-8540-43EB-BB6C-FA02CF9A3256</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>6923B595-92A0-4244-B649-C7D370204504</key>
 		<array>
 			<dict>
@@ -323,19 +310,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>B16B38BD-BC64-4C28-9527-9797BE3FBB29</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>604E4FDA-8540-43EB-BB6C-FA02CF9A3256</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1063,7 +1037,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>time</string>
+				<string>now</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1075,7 +1049,7 @@
 				<key>runningsubtext</key>
 				<string>.....</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 ./src/python/tool.py "time" "{query}"</string>
+				<string>/usr/local/bin/python3 ./src/python/tool.py "now" "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1083,7 +1057,7 @@
 				<key>subtext</key>
 				<string>当前时间戳</string>
 				<key>title</key>
-				<string>time</string>
+				<string>now</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -1257,55 +1231,6 @@
 			<string>D2648720-B6B0-4B1C-BF0A-C887678BF9A6</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>h</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>2</integer>
-				<key>queuemode</key>
-				<integer>2</integer>
-				<key>runningsubtext</key>
-				<string>加载中...</string>
-				<key>script</key>
-				<string>php ./src/php/history.php "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>历史上的今天</string>
-				<key>title</key>
-				<string>h</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>E1CFDD7B-BBBD-4C1E-AA86-23FD6D0519CE</string>
-			<key>version</key>
-			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1514,6 +1439,55 @@
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>history</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>2</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>加载中...</string>
+				<key>script</key>
+				<string>php ./src/php/history.php "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>历史上的今天</string>
+				<key>title</key>
+				<string>history</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E1CFDD7B-BBBD-4C1E-AA86-23FD6D0519CE</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
@@ -1575,7 +1549,7 @@
 				<key>queuedelaymode</key>
 				<integer>2</integer>
 				<key>queuemode</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>runningsubtext</key>
 				<string>加载中...</string>
 				<key>script</key>
@@ -1599,50 +1573,6 @@
 			<string>355B267B-49C8-421D-BC75-D45FECB63289</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>history</string>
-				<key>subtext</key>
-				<string>历史上的今天</string>
-				<key>text</key>
-				<string>history</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>B16B38BD-BC64-4C28-9527-9797BE3FBB29</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>php ./src/php/history.php "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>604E4FDA-8540-43EB-BB6C-FA02CF9A3256</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -1720,15 +1650,6 @@
 			<integer>160</integer>
 			<key>ypos</key>
 			<integer>795</integer>
-		</dict>
-		<key>604E4FDA-8540-43EB-BB6C-FA02CF9A3256</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>7</integer>
-			<key>xpos</key>
-			<integer>165</integer>
-			<key>ypos</key>
-			<integer>1035</integer>
 		</dict>
 		<key>6923B595-92A0-4244-B649-C7D370204504</key>
 		<dict>
@@ -1870,15 +1791,6 @@
 			<key>ypos</key>
 			<integer>20</integer>
 		</dict>
-		<key>B16B38BD-BC64-4C28-9527-9797BE3FBB29</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>7</integer>
-			<key>xpos</key>
-			<integer>20</integer>
-			<key>ypos</key>
-			<integer>1035</integer>
-		</dict>
 		<key>B9F66269-5A85-4FE2-99A6-1F0AEC41993B</key>
 		<dict>
 			<key>colorindex</key>
@@ -1909,9 +1821,9 @@
 			<key>colorindex</key>
 			<integer>7</integer>
 			<key>xpos</key>
-			<integer>335</integer>
+			<integer>440</integer>
 			<key>ypos</key>
-			<integer>625</integer>
+			<integer>915</integer>
 		</dict>
 		<key>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</key>
 		<dict>

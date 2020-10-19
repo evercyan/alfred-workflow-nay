@@ -1,10 +1,86 @@
-# alfred-workflow-nay
+<div align="center">
 
-> workflow 个人小工具, 持续迭代中....
+![alfred-workflow-nay](https://raw.githubusercontent.com/evercyan/cantor/master/resource/bb/bbfafaccf99d3c0baf17608c11b4b925.png)
+
+alfred workflow 小工具, 持续迭代中
+
+[点我下载 nay.alfredworkflow](https://github.com/evercyan/alfred-workflow-nay/releases/download/v0.0.1/nay.alfredworkflow)
+
+</div>
 
 ---
 
-### 使用帮助
+## 功能列表
+
+#### nay 显示命令菜单
+
+### urle URL 编码
+`http://baidu` => `http%3A//baidu`
+
+### urld URL 解码
+`http%3A//baidu` => `http://baidu`
+
+### jsons JSON 收缩
+```json
+{
+    "hello": "world"
+}
+```
+
+=>
+
+```json
+{"hello": "world"}
+```
+
+### jsone JSON 扩张
+```json
+{"hello": "world"}
+```
+
+=>
+
+```json
+{
+    "hello": "world"
+}
+```
+
+### unie Unicode 编码
+`你好` => `\u4f60\u597d`
+
+### unid Unicode 解码
+`\u4f60\u597d` => `你好`
+
+### half 全角转半角
+`。，【】？` => `.,[]?`
+
+### full 半角转全角
+`.,[]?` => `。，【】？`
+
+### t2d 时间戳转日期
+`1603097785` => `2020-10-19 16:56:25`
+
+### d2t 日期转时间戳
+`2020-10-19 16:56:25` => `1603097785`
+
+### now 当前时间戳
+`1603097785`
+
+### md5 生成 md5
+`111111` => `96e79218965eb72c92a549dd5a330112`
+
+### ip 显示 IP
+### kill 强杀进程
+### ocr 文字识别
+### qr 生成二维码
+### dt 斗图
+### abbr 字母简写
+### f 百度翻译
+### history 历史上的今天
+
+
+## 使用帮助
 
 [点我直接下载安装文件](./Nay.alfredworkflow)
 
@@ -40,128 +116,6 @@ PPSS:
 ```
 
 ---
-
-### 命令菜单
-
-> 打开 alfre 输入框...
-
-#### nay: 显示命令列表
-![](./assets/nay.png)
-
-#### ip: 显示内外网 IP
-![](./assets/ip.png)
-
-#### jsons: Json 转换成单行
-
-```
-{
-    "hello": "world"
-}
-
-=>
-
-{"hello": "world"}
-```
-
-#### jsone: Json 格式化
-
-```
-{"hello": "world"}
-
-=>
-
-{
-    "hello": "world"
-}
-```
-
-
-#### unie: Unicode 编码
-
-```
-你好
-
-=>
-
-\u4f60\u597d
-```
-
-#### unid: Unicode 解码
-
-```
-\u4f60\u597d
-
-=>
-
-你好
-```
-
-#### half: 全角转半角
-
-```
-。，【】
-
-=>
-
-.,[]
-```
-
-#### full: 半角转全角
-
-```
-.,[]
-
-=>
-
-。，【】
-```
-
-#### urle: URL 编码
-
-```
-http://baidu
-
-=>
-
-http%3A//baidu
-```
-
-#### urld: URL 解码
-
-```
-http%3A//baidu
-
-=>
-
-http://baidu
-```
-
-#### time: 当前时间戳
-
-```
-1571394736
-```
-
-#### t2d: 时间戳转换为日期
-
-```
-1571394736
-
-=>
-
-2019-10-18 18:32:16
-```
-
-#### d2t: 日期转换为时间戳
-
-```
-2019-10-18 18:32:16
-
-=>
-
-1571394736
-```
-
 
 #### si2c: 图片复制到剪切板
 
