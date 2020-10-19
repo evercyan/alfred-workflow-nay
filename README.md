@@ -4,7 +4,7 @@
 
 alfred workflow utils, continue to upgrade.
 
-[点我下载 nay.alfredworkflow](https://github.com/evercyan/alfred-workflow-nay/releases/download/v0.0.1/nay.alfredworkflow)
+[点我下载 nay.alfredworkflow](https://github.com/evercyan/alfred-workflow-nay/releases/download/v0.0.1/nay.alfredworkflow.zip)
 
 </div>
 
