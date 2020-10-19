@@ -23,14 +23,14 @@ CREDENTIALS_PATH = CREDENTIALS_FOLDER + '/.alfred_ocr_credentials'
 def get_credentials
     credentials = {}
     FileUtils.mkdir_p CREDENTIALS_FOLDER
-    api_key = ENV['bce_api_key']
-    api_secret = ENV['bce_api_secret']
+    api_key = ENV['bd_ocr_key']
+    api_secret = ENV['bd_ocr_secret']
     begin
         credentials = Marshal.load IO.binread CREDENTIALS_PATH
         raise '证书过期' if credentials['expires_at'] < Time.now
     rescue
-        raise '请先配置 bce_api_key' unless api_key
-        raise '请先配置 bce_api_secret' unless api_secret
+        raise '请先配置 bd_ocr_key' unless api_key
+        raise '请先配置 bd_ocr_secret' unless api_secret
         url = URI("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=#{api_key}&client_secret=#{api_secret}")
 
         http = Net::HTTP.new(url.host, url.port)

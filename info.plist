@@ -70,6 +70,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>92BE4DE9-19E5-47D2-BD23-2D949DE7AE13</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>46D05865-DF14-4A72-A726-70F8493BCF61</key>
 		<array>
@@ -1073,6 +1083,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>clipboardtextrtf</key>
+				<string>{\rtf1\ansi\ansicpg936\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c84706\cname controlTextColor;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \{query\}}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1117,31 +1152,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>clipboardtextrtf</key>
-				<string>{\rtf1\ansi\ansicpg936\cocoartf1671\cocoasubrtf600
-{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c84706\cname controlTextColor;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f0\fs26 \cf2 \{query\}}</string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1161,6 +1171,27 @@
 			<string>921144F9-26A8-4DF9-AA64-A2C536B7FD1A</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:content}</string>
+				<key>title</key>
+				<string>{var:title}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D2648720-B6B0-4B1C-BF0A-C887678BF9A6</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1214,23 +1245,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>autopaste</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
+				<key>clipboardtext</key>
 				<string>{var:content}</string>
-				<key>title</key>
-				<string>{var:title}</string>
+				<key>clipboardtextrtf</key>
+				<string>{\rtf1\ansi\ansicpg936\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c84706\cname controlTextColor;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \{var:content\}}</string>
+				<key>transient</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>D2648720-B6B0-4B1C-BF0A-C887678BF9A6</string>
+			<string>A953DE81-6924-45C5-BEA4-56586EA6472E</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1278,31 +1313,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>F2B32D11-9F1F-4EBF-A66E-4061DE3CF17E</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{var:content}</string>
-				<key>clipboardtextrtf</key>
-				<string>{\rtf1\ansi\ansicpg936\cocoartf1671\cocoasubrtf600
-{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c84706\cname controlTextColor;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f0\fs26 \cf2 \{var:content\}}</string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>A953DE81-6924-45C5-BEA4-56586EA6472E</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -1582,7 +1592,7 @@
 		<key>0EEE4192-910C-484E-9DFC-76BCDA34B2E1</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>440</integer>
 			<key>ypos</key>
@@ -1591,7 +1601,7 @@
 		<key>124AD360-A639-40D2-AC89-89259FE985EC</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1600,7 +1610,7 @@
 		<key>22007CA4-2128-4193-8C1B-F8CB0A307C73</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1609,7 +1619,7 @@
 		<key>2C9E1560-4486-440D-9D0F-64C5EE5076FC</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1618,16 +1628,16 @@
 		<key>355B267B-49C8-421D-BC75-D45FECB63289</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>9</integer>
+			<integer>3</integer>
 			<key>xpos</key>
-			<integer>160</integer>
+			<integer>300</integer>
 			<key>ypos</key>
 			<integer>915</integer>
 		</dict>
 		<key>46D05865-DF14-4A72-A726-70F8493BCF61</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>1</integer>
+			<integer>7</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1636,7 +1646,7 @@
 		<key>5661F257-58C4-4D48-B911-2AE2476D3491</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>160</integer>
 			<key>ypos</key>
@@ -1645,7 +1655,7 @@
 		<key>5A02C0E2-054C-42EA-AFE0-8E8C08205D27</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>160</integer>
 			<key>ypos</key>
@@ -1654,7 +1664,7 @@
 		<key>6923B595-92A0-4244-B649-C7D370204504</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>160</integer>
 			<key>ypos</key>
@@ -1670,7 +1680,7 @@
 		<key>6DB0D842-47DE-4480-AD61-0124208E434D</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>440</integer>
 			<key>ypos</key>
@@ -1679,7 +1689,7 @@
 		<key>6DC692E8-46A0-4FB4-B6AF-F8083803B660</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>600</integer>
 			<key>ypos</key>
@@ -1688,7 +1698,7 @@
 		<key>7AEF7F09-A49F-442D-AE5E-A58BFF9BD46B</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>300</integer>
 			<key>ypos</key>
@@ -1697,7 +1707,7 @@
 		<key>7E0CD518-1E97-4BCB-B69C-6CA047E64DF0</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>740</integer>
 			<key>ypos</key>
@@ -1706,7 +1716,7 @@
 		<key>90AE3843-19A8-4882-85FD-E3EF26C86623</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>300</integer>
 			<key>ypos</key>
@@ -1715,7 +1725,7 @@
 		<key>921144F9-26A8-4DF9-AA64-A2C536B7FD1A</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>xpos</key>
 			<integer>160</integer>
 			<key>ypos</key>
@@ -1724,16 +1734,16 @@
 		<key>92BE4DE9-19E5-47D2-BD23-2D949DE7AE13</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>9</integer>
+			<integer>3</integer>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>440</integer>
 			<key>ypos</key>
 			<integer>915</integer>
 		</dict>
 		<key>93C0473E-3D34-4445-AA53-E8349AEC05EE</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>9</integer>
+			<integer>3</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1742,7 +1752,7 @@
 		<key>955BF4F9-0CBD-456A-AB52-F09B946BCCCA</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>600</integer>
 			<key>ypos</key>
@@ -1751,7 +1761,7 @@
 		<key>A33F2893-3206-4A22-98A7-AAAF3CF0EB75</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>740</integer>
 			<key>ypos</key>
@@ -1760,7 +1770,7 @@
 		<key>A393DE6E-30F2-4242-8B34-B6CFC608C4F4</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>160</integer>
 			<key>ypos</key>
@@ -1769,14 +1779,14 @@
 		<key>A953DE81-6924-45C5-BEA4-56586EA6472E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>775</integer>
+			<integer>745</integer>
 			<key>ypos</key>
-			<integer>740</integer>
+			<integer>635</integer>
 		</dict>
 		<key>AD0C1A4D-3921-4E24-AF47-1FA9784824DA</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>9</integer>
+			<integer>3</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1785,7 +1795,7 @@
 		<key>B14CD8AC-EE53-4ED1-84EE-7AAF7292F3FE</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>300</integer>
 			<key>ypos</key>
@@ -1794,7 +1804,7 @@
 		<key>B9F66269-5A85-4FE2-99A6-1F0AEC41993B</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>xpos</key>
 			<integer>440</integer>
 			<key>ypos</key>
@@ -1803,14 +1813,14 @@
 		<key>D2648720-B6B0-4B1C-BF0A-C887678BF9A6</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>740</integer>
 			<key>ypos</key>
-			<integer>620</integer>
+			<integer>515</integer>
 		</dict>
 		<key>DF994864-8956-463A-94C8-F85E13BCE860</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>1</integer>
+			<integer>7</integer>
 			<key>xpos</key>
 			<integer>160</integer>
 			<key>ypos</key>
@@ -1819,23 +1829,23 @@
 		<key>E1CFDD7B-BBBD-4C1E-AA86-23FD6D0519CE</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>7</integer>
+			<integer>3</integer>
 			<key>xpos</key>
-			<integer>440</integer>
+			<integer>160</integer>
 			<key>ypos</key>
 			<integer>915</integer>
 		</dict>
 		<key>EA25458B-DB26-4AF1-A78A-CAE6A8F30F26</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>740</integer>
 			<key>ypos</key>
-			<integer>500</integer>
+			<integer>395</integer>
 		</dict>
 		<key>F2B32D11-9F1F-4EBF-A66E-4061DE3CF17E</key>
 		<dict>
 			<key>colorindex</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>xpos</key>
 			<integer>20</integer>
 			<key>ypos</key>
@@ -1846,9 +1856,9 @@
 	<dict>
 		<key>api_history_key</key>
 		<string>99d502aa72fc4918a3dc0c7fe68f2822</string>
-		<key>bce_api_key</key>
+		<key>bd_ocr_key</key>
 		<string>X0ZeAwxlc3iQHVM0kuufUBQI</string>
-		<key>bce_api_secret</key>
+		<key>bd_ocr_secret</key>
 		<string>GV8hpFmtPyTckNOmM8tEsC4hNk8Q3uKA</string>
 		<key>bd_translate_appid</key>
 		<string>20200714000519103</string>
@@ -1857,14 +1867,14 @@
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
-		<string>bd_translate_appid</string>
-		<string>bce_api_secret</string>
-		<string>bce_api_key</string>
-		<string>bd_translate_secret</string>
 		<string>api_history_key</string>
+		<string>bd_ocr_secret</string>
+		<string>bd_ocr_key</string>
+		<string>bd_translate_appid</string>
+		<string>bd_translate_secret</string>
 	</array>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>0.0.1</string>
 	<key>webaddress</key>
 	<string>evercyan.github.io</string>
 </dict>
