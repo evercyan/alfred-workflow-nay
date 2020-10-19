@@ -397,11 +397,11 @@
 	<key>createdby</key>
 	<string>cyan</string>
 	<key>description</key>
-	<string>My tools</string>
+	<string>alfred workflow utils</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Nay</string>
+	<string>nay</string>
 	<key>objects</key>
 	<array>
 		<dict>

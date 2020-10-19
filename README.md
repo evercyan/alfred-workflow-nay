@@ -2,7 +2,7 @@
 
 ![alfred-workflow-nay](https://raw.githubusercontent.com/evercyan/cantor/master/resource/bb/bbfafaccf99d3c0baf17608c11b4b925.png)
 
-alfred workflow 小工具, 持续迭代中
+alfred workflow utils, continue to upgrade.
 
 [点我下载 nay.alfredworkflow](https://github.com/evercyan/alfred-workflow-nay/releases/download/v0.0.1/nay.alfredworkflow)
 
@@ -22,18 +22,31 @@ A: 应用使用脚本语言有 python, php, shell 和 ruby 等, 均需要对应�
 ```
 
 ```
-若需要使用进阶工具, 需要安装相关依赖
+若需要使用特殊功能, 需要安装相关依赖
 1. brew install py3cairo pygobject3
 2. 在 alfred workflow 列表中, 选中 nay 右键: Open in Terminal 进入应用目录
 3. pip3 install -r requirements.txt
 ```
 
 ```
-Q: 需要自行申请应用密钥的工具?
+Q: 需要自行申请应用密钥的功能?
 A: 百度翻译, 历史上的今天, ocr
 ```
 
-免责一下, 本应用仅 Mac 10.14+ 亲测
+```
+Q: 安装后可直接使用的功能?
+A: 除以下功能外:
+    ocr: 文字识别
+    img: 复制图片到剪贴板
+    qr: 生成二维码
+    dt: 斗图
+    f: 百度翻译
+    history: 历史上的今天
+```
+
+免责一下, 本应用仅 Mac 10.14+ 亲测, 快照镇楼~
+
+![nay](https://raw.githubusercontent.com/evercyan/cantor/master/resource/cb/cb0096f41a97690ba792389eb0ca5be3.png)
 
 ---
 
@@ -44,9 +57,9 @@ A: 百度翻译, 历史上的今天, ocr
 
 ---
 
-### 基础工具
+### 基础功能
 
-一些常用的文本处理工具, 安装即可使用
+一些常用的文本处理功能, 安装即可使用
 
 #### urle: URL 编码
 `http://baidu` => `http%3A//baidu`
@@ -104,11 +117,9 @@ A: 百度翻译, 历史上的今天, ocr
 #### md5: 生成 md5
 `111111` => `96e79218965eb72c92a549dd5a330112`
 
----
+### 特殊功能
 
-### 进阶工具
-
-需要安装 python 的一些依赖库,
+如写入图片内容到 `剪贴板` 等, 需要安装 python 的依赖库
 
 ```sh
 brew install py3cairo pygobject3
@@ -140,8 +151,6 @@ alfred 输入框输入 `img` `远程图片地址` 或 `本地图片地址`, 应�
 #### qr: 生成二维码
 alfred 输入框输入 `qr` `文本`, 应用会自动生成二维码图片, 并将图片内容写入 `剪贴板`
 
----
-
 ### 系统相关
 
 #### ip: 显示 IP
@@ -150,14 +159,14 @@ alfred 输入框输入 `qr` `文本`, 应用会自动生成二维码图片, 并�
 #### kill: 强杀进程
 ![nay-kill](https://raw.githubusercontent.com/evercyan/cantor/master/resource/59/595e6d9de74a71b9b8b62c7695df4a34.png)
 
----
+### Api 功能
 
-### Api 工具
-
-调用外部 api 实现的一些小功能
+调用外部 api 实现的一些功能
 
 #### dt: 斗图
 ![nay-dt](https://raw.githubusercontent.com/evercyan/cantor/master/resource/02/02b69666c1eda159a61085bb9d198d6f.png)
+
+此功能需要 python 的依赖库
 
 #### abbr: 字母简写
 ![nay-abbr](https://raw.githubusercontent.com/evercyan/cantor/master/resource/2b/2ba5d9c79adb71ff2b46f8b30f861c4f.png)
