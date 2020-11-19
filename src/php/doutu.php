@@ -8,10 +8,6 @@ require_once __DIR__ . '/base.php';
 class Doutu extends Base
 {
     const TITLE = '斗图';
-    const API = 'https://www.doutula.com/search?keyword=%s';
-
-    const REGEX_IMAGE = '/data-original\=\"([\s\S]*?)\"/';
-    const REGEX_NAME = '/<p style=\"([\s\S]*?)<\/p>/';
 
     // 列表图片数量
     const IMAGE_NUMBER = 9;
@@ -25,47 +21,54 @@ class Doutu extends Base
         }
     }
 
+    // https://www.doutula.com
+    private function doutula(string $keyword)
+    {
+        $content = $this->get(sprintf('https://doutula.com/search?keyword=%s', $keyword));
+        preg_match_all('/data-original\=\"([\s\S]*?)\"/', $content, $image_list);
+        return $image_list[1] ?? [];
+    }
+
+    // https://www.52doutu.cn
+    private function doutu(string $keyword)
+    {
+        $content = $this->get(sprintf('https://www.52doutu.cn/search/%s', $keyword));
+        preg_match_all('/data-original\=\"([\s\S]*?)\"/', $content, $image_list);
+        return $image_list[1] ?? [];
+    }
+
     public function api(string $keyword)
     {
-        $content = $this->get(sprintf(self::API, $keyword));
-        preg_match_all(self::REGEX_IMAGE, $content, $image_list);
-        preg_match_all(self::REGEX_NAME, $content, $name_list);
-        if (empty($image_list)
-            || empty($name_list)) {
-            return $this->renderError('无数据');
+        $image_list = $this->doutu($keyword);
+        if (empty($image_list)) {
+            return $this->renderError('无数据' . count($image_list));
         }
 
+        // 限制显示图片数量
         $image_number = $_ENV['app_doutu_image_number'] ?? self::IMAGE_NUMBER;
 
-        $datas = [];
-        $image_paths = [];
-        for ($i = 0; $i < count($image_list[1]); $i++) {
-            if (empty($name_list[1][$i])) {
+        $list = [];
+        foreach ($image_list as $image_url) {
+            if (!preg_match('/^http/is', $image_url)) {
                 continue;
             }
-            if (count($datas) >= $image_number) {
+            if (count($list) >= $image_number) {
                 break;
             }
-            $title = substr($name_list[1][$i], strpos($name_list[1][$i], '>') + 1);
-            $image = $image_list[1][$i];
-            $image_path = $this->saveImage($image);
-            if (in_array($image_path, $image_paths)) {
-                continue;
-            }
-            $image_paths[] = $image_path;
-            $datas[] = [
-                'title' => $title,
-                'image' => $image,
+            $image_path = $this->saveImage($image_url);
+            $list[] = [
+                'title' => $keyword,
+                'image' => $image_url,
                 'image_path' => $image_path,
             ];
         }
 
-        if (empty($datas)) {
+        if (empty($list)) {
             return $this->renderError('无数据');
         }
 
         $result = [];
-        foreach ($datas as $item) {
+        foreach ($list as $item) {
             $result[] = [
                 'title' => $item['title'],
                 'subtitle' => '',
