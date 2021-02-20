@@ -39,9 +39,9 @@ class Doutu extends Base
 
     public function api(string $keyword)
     {
-        $image_list = $this->doutu($keyword);
+        $image_list = $this->doutula($keyword);
         if (empty($image_list)) {
-            return $this->renderError('无数据' . count($image_list));
+            return $this->renderError('无数据');
         }
 
         // 限制显示图片数量
